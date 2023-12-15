@@ -1,0 +1,125 @@
+.mycodes{
+  height: 100vh;
+  font-family: 'raleway', sans-serif;
+
+}
+.code-bars-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the code bars horizontally */
+  gap: 10px;
+
+}
+
+/* Style for each code bar */
+.code-bar {
+  background-color:#2a2b2b;
+  padding: 10px;
+  width: 70%;
+  color: #ffffff;
+   /* Adjust the width as needed for responsiveness */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between; /* Align items horizontally */
+  align-items: center; /* Center items vertically */
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin: 10px 5px;
+  border-radius: 5px;
+  
+
+}
+
+/* Style for the buttons and text inside the code bar */
+.code-bar .file-name,
+.code-bar .language,
+.code-bar .date {
+  margin-bottom: 8px;
+}
+
+/* Style for the View Code button */
+.code-bar .view-button {
+  background-color:rgb(33, 86, 232);
+  color:white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for the View Code button */
+.code-bar .view-button:hover {
+  background-color: #f51b1b;
+}
+
+/* Style for the code view */
+.code-view {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style for the pre element in the code view */
+.code-view pre {
+  white-space: pre-wrap;
+  overflow: auto;
+  max-width: 80%;
+  max-height: 80%;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Style for the Close and Copy buttons in the code view */
+.code-view .close-button,
+.code-view .copy-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 16px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for the Close and Copy buttons */
+.code-view .close-button:hover,
+.code-view .copy-button:hover {
+  background-color: #ec1a1a;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #fcfcfc;
+  color:black;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for pagination buttons */
+.pagination button:hover {
+  background-color: #0056b3;
+}
+.delete-button{
+  background-color: transparent;
+  border: none;
+
+}

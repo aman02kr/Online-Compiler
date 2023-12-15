@@ -1,0 +1,188 @@
+*{
+    box-sizing:border-box;
+  }
+  body{
+    background-color: #828282;
+    margin:0;
+  }
+  .nav{
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background-color: #17178a;
+    background-image: linear-gradient(160deg, #17178a 0%, #186057 100%);
+  }
+  .nav a {
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    text-decoration: none;
+    color:white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+  }
+  .Compiler{
+    width: 100%;
+    height:100%;
+    color:black;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease;
+  
+  }
+  * {
+    box-sizing: border-box;
+  }
+  
+  .iocontainer {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    text-align: center;
+    border: 10px;
+  }
+
+  .inputarea{
+    width:100%;
+    color: #ffffff;
+    min-height: 300px;
+    max-height: 500px;
+
+    background-color: rgb(98, 94, 94);
+    /* padding: 1em; */
+    outline: none;
+    font-family: 'raleway', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 10px;
+     flex: 50%;
+    transition: all 0.2s;
+  
+    
+  }
+ 
+  ::placeholder {
+    color: rgb(0, 0, 0);
+    opacity: 1; /* Firefox */
+  }
+  
+  
+  .outputarea{
+    width: 100%;
+     min-height: 300px;
+     max-height: 500px;
+    color: #000000;
+    background-color: rgb(98, 94, 94);
+    overflow: auto;
+    /* padding:10px 20px; */
+    font-family: 'raleway', sans-serif;
+    font-size: small;
+    padding: 10px;
+    flex: 50%;
+   
+  }
+  @media (max-width: 800px) {
+    .iocontainer {
+      flex-direction: column;
+    }
+  }
+  .iocontainer p{
+    text-align: left;
+    margin-top: 0%;
+  }
+ 
+  .toolbox {
+    display: flex;
+    width:100%;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color:#000000;
+    height:auto;
+  }
+ 
+  .tool {
+    font-weight: bold;
+  border-radius: 2px;
+  border-style: none;
+    font-size: 12px;
+    position: relative;
+    background-color:rgb(85, 85, 85);
+    border: none;
+    color: #ffffff;
+    padding: 10px;
+    width: 60px;
+    margin:5px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    overflow: hidden;
+    cursor: pointer;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display:flex;
+  }
+  
+  .tool:hover{
+    background: #ffffff;
+    color: rgb(15, 14, 14);
+
+  }
+  
+  
+  .tool:after {
+    content: "";
+    background: #90EE90;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+  }
+  
+  .tool:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+  }
+  .divtoolbox{
+    
+    height: 45px;
+  }
+  
+  /* .runinfo{
+    height: 200px;
+    padding: 20px;
+  } */
+  select {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+  }
+  
+  /* Style the options */
+  select option {
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 8px;
+    font-size: large;
+  }
+  
+  /* Style the selected option */
+  select option:checked {
+    background-color: #ddd;
+    color: #555;
+    font-weight: bold;
+    margin: 10px;
+  }
+  
+  
+  
+  
+  
