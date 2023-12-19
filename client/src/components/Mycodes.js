@@ -44,7 +44,7 @@ const Mycodes = () => {
   };
   const deleteCode = async (codeId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/delete-code/${codeId}`);
+      const response = await axios.delete(`https://compiler-box.onrender.com/delete-code/${codeId}`);
       if (response.status === 200) {
         // If code is deleted successfully, fetch updated codes
         fetchUserCodes();
