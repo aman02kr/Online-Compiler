@@ -37,9 +37,7 @@
   background-color: #f2f2f2;
 }
 
-.code-table tr:hover {
-  background-color: #e0e0e0; /* Change the background color on hover */
-}
+
 
 /* Apply flex to content inside each td */
 .code-table td > * {
