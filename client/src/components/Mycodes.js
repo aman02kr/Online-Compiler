@@ -64,50 +64,64 @@ const Mycodes = () => {
 
   return (
     <div className='mycodes'>
-      <h2 style={{ margin: '20px' }}>Your Saved Codes</h2>
+  <h2 style={{ margin: '20px' }}>Your Saved Codes</h2>
 
-      {/* Display codes in bars horizontally */}
-      <div className="code-bars-container">
-        {currentCodes.map((userCode) => (
-          <div key={userCode._id} className="code-bar">
-            <div className="file-name">{userCode.fileName}</div>
+  {/* Display codes in a table */}
+  <table className="code-table">
+    <thead>
+      <tr>
+        <th>File Name</th>
+        <th>View Code</th>
+        <th>Language</th>
+        <th>Date</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {currentCodes.map((userCode) => (
+        <tr key={userCode._id}>
+          <td>{userCode.fileName}</td>
+          <td>
             <button className="view-button" onClick={() => openCodeView(userCode)}>
               View Code
             </button>
-            <div className="language">{userCode.language}</div>
-            <div className="date">{new Date(userCode.date).toLocaleString()}</div>
-            <div>
-              <button className="delete-button" onClick={() => deleteCode(userCode._id)}>
-              <FontAwesomeIcon icon={faTrashAlt}  style={{color:"white"}} /> 
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+          </td>
+          <td>{userCode.language}</td>
+          <td>{new Date(userCode.date).toLocaleString()}</td>
+          <td>
+            <button className="delete-button" onClick={() => deleteCode(userCode._id)}>
+              <FontAwesomeIcon icon={faTrashAlt} style={{ color: "white" }} />
+            </button>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
 
-      {/* Pagination */}
-      <div className="pagination">
-        {Array.from({ length: Math.ceil(userCodes.length / codesPerPage) }, (_, index) => (
-          <button key={index + 1} onClick={() => paginate(index + 1)}>
-            {index + 1}
-          </button>
-        ))}
-      </div>
+  {/* Pagination */}
+  <div className="pagination">
+    {Array.from({ length: Math.ceil(userCodes.length / codesPerPage) }, (_, index) => (
+      <button key={index + 1} onClick={() => paginate(index + 1)}>
+        {index + 1}
+      </button>
+    ))}
+  </div>
 
-      {/* Code view */}
-      {selectedCode && (
-        <div className="code-view">
-          <button className="close-button" onClick={closeCodeView}>
-            &times;
-          </button>
-          <h3>Viewing Code - {selectedCode._id}</h3>
-          <pre>{selectedCode.code}</pre>
-          <button className="copy-button" onClick={copyCodeToClipboard}>
-            Copy
-          </button>
-        </div>
-      )}
+  {/* Code view */}
+  {selectedCode && (
+    <div className="code-view">
+      <button className="close-button" onClick={closeCodeView}>
+        &times;
+      </button>
+      <h3>Viewing Code - {selectedCode._id}</h3>
+      <pre>{selectedCode.code}</pre>
+      <button className="copy-button" onClick={copyCodeToClipboard}>
+        Copy
+      </button>
     </div>
+  )}
+</div>
+
   );
 };
 

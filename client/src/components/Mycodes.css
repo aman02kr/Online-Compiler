@@ -1,47 +1,60 @@
-.mycodes{
-  height: 100vh;
+
+.mycodes {
+  margin: 0 auto; /* Center the container */
+  max-width: 800px; /* Set a maximum width */
+  padding: 20px; /* Add left and right padding */
+  height:100vh ;
   font-family: 'raleway', sans-serif;
-
-}
-.code-bars-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* Center the code bars horizontally */
-  gap: 10px;
-
 }
 
-/* Style for each code bar */
-.code-bar {
-  background-color:#2a2b2b;
-  padding: 10px;
-  width: 70%;
-  color: #ffffff;
-   /* Adjust the width as needed for responsiveness */
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between; /* Align items horizontally */
-  align-items: center; /* Center items vertically */
-  transition: transform 0.3s, box-shadow 0.3s;
-  margin: 10px 5px;
-  border-radius: 5px;
+/* Add styles for the table */
+.code-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  table-layout:fixed;
+  background-color: #333;
+  color: white;
   
 
 }
 @media (max-width: 600px) {
-  .code-bar{
-    width:90%;
-
+  .code-table,
+  .view-button{
+    font-size:xx-small;
+  }}
+  .code-table th{
+    color: black;
   }
-}/* Style for the buttons and text inside the code bar */
-.code-bar .file-name,
-.code-bar .language,
-.code-bar .date {
+
+.code-table th, .code-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.code-table th {
+  background-color: #f2f2f2;
+}
+
+.code-table tr:hover {
+  background-color: #e0e0e0; /* Change the background color on hover */
+}
+
+/* Apply flex to content inside each td */
+.code-table td > * {
+  display: flex;
+  align-items: center;
+}
+/* Style for the buttons and text inside the code bar */
+ .file-name,
+ .language,
+.date {
   margin-bottom: 8px;
 }
 
 /* Style for the View Code button */
-.code-bar .view-button {
+.view-button {
   background-color:rgb(33, 86, 232);
   color:white;
   border: none;
@@ -52,7 +65,7 @@
 }
 
 /* Hover effect for the View Code button */
-.code-bar .view-button:hover {
+.view-button:hover {
   background-color: #f51b1b;
 }
 
