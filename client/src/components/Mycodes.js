@@ -21,7 +21,7 @@ const Mycodes = () => {
   const fetchUserCodes = async () => {
     try {
       const userId = user.sub;
-      const response = await axios.get(`http://localhost:5000/user-codes/${userId}`);
+      const response = await axios.get(`https://compiler-box.onrender.com/user-codes/${userId}`);
       setUserCodes(response.data);
     } catch (error) {
       console.error('Error fetching user codes:', error);
