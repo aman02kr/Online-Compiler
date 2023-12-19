@@ -23,14 +23,12 @@ function Compiler() {
   const [jobDetails, setJobDetails] = useState("null");
   const {user} =useAuth0();
   const navigate = useNavigate();
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
     const defaultlang = localStorage.getItem("default-language") || "cpp";
     setLanguage(defaultlang);
   }, []);
-
-  
-  
   
   const saveCode = async () => {
     const fileName = window.prompt('Enter the file name:')+"."+language;
@@ -97,6 +95,7 @@ function Compiler() {
     };
 
     try {
+      setIsRunning(true);
       setJobId("");
       setStatus("");
       setOutput("");
@@ -116,6 +115,8 @@ function Compiler() {
           setJobDetails(job);
           if (jobStatus === "pending") return;
           setOutput(jobOutput);
+          setIsRunning(false);
+
           clearInterval(intervalId);
 
         }
@@ -128,6 +129,7 @@ function Compiler() {
       }, 1000);
     }
     catch ({ response }) {
+      setIsRunning(false);
       if (response) {
         const errMsg = response.data.stderr;
         setOutput(errMsg);
@@ -136,22 +138,24 @@ function Compiler() {
         setOutput("Error connecting to server");
       }
     }
+
   }
-  const renderTimeDetails = () => {
-    if (!jobDetails) {
-      return "";
-    }
-    let { submittedAt, startedAt, completedAt } = jobDetails;
-    let result = "";
-    submittedAt = moment(submittedAt).toString();
-    result += `Job Submitted At: ${submittedAt}  `;
-    const start = moment(startedAt);
-    const end = moment(completedAt);
-    const diff = end.diff(start, "seconds", true);
-    console.log("hello");
-    result += `Execution Time: ${diff}s`;
-    return result;
-  };
+  // const renderTimeDetails = () => {
+  //   if (!jobDetails) {
+  //     return "";
+  //   }
+  //   let { submittedAt, startedAt, completedAt } = jobDetails;
+  //   let result = "";
+  //   submittedAt = moment(submittedAt).toString();
+  //   result += `Job Submitted At: ${submittedAt}  `;
+  //   const start = moment(startedAt);
+  //   const end = moment(completedAt);
+  //   const diff = end.diff(start, "seconds", true);
+  //   console.log("hello");
+  //   result += `Execution Time: ${diff}s`;
+  //   return result;
+  // };
+
   return (
     <GlobalInfo.Provider value={{ code, language, theme,fontsize }}>
       <div className="Compiler" style={{ whiteSpace: "pre-line" }} >
@@ -181,7 +185,7 @@ function Compiler() {
  
             </select>
             <button className="tool"  style={{ width: "100px" }} onClick={setDefaultLanguage}>Set Default</button>
-            <button className="tool"  onClick={handleSubmit} style={{ backgroundColor: "green" }}>Run</button>
+            <button className="tool"  onClick={handleSubmit} style={{ backgroundColor: "green" } } disabled={isRunning}>{isRunning ? 'Running...' : 'Run'}</button>
             <button className="tool"  onClick={handleCopy} style={{ width: "30px" }}><i class=" fa fa-copy"></i> 
             </button>
             <select className="tool"  style={{ width: "100px" }} value ={theme} onChange={

@@ -44,7 +44,7 @@ const Mycodes = () => {
   };
   const deleteCode = async (codeId) => {
     try {
-      const response = await axios.delete(`http://localhost:5000/delete-code/${codeId}`);
+      const response = await axios.delete(`https://compiler-box.onrender.com/${codeId}`);
       if (response.status === 200) {
         // If code is deleted successfully, fetch updated codes
         fetchUserCodes();
@@ -66,7 +66,6 @@ const Mycodes = () => {
     <div className='mycodes'>
   <h2 style={{ margin: '20px' }}>Your Saved Codes</h2>
 
-  {/* Display codes in a table */}
   <table className="code-table">
     <thead>
       <tr>
