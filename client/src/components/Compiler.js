@@ -37,7 +37,7 @@ function Compiler() {
     const userId = user.sub;
     // Replace with the actual user ID obtained from Auth0
     try {
-      await axios.post('http://localhost:5000/save-code', { userId, code, language ,fileName });
+      await axios.post('https://compiler-box.onrender.com/save-code', { userId, code, language ,fileName });
       console.log('Code saved successfully');
       alert("saved successfully");
 
@@ -101,13 +101,13 @@ function Compiler() {
       setStatus("");
       setOutput("");
       setJobDetails(null);
-      const { data } = await axios.post("http://localhost:5000/run", payload);
+      const { data } = await axios.post("https://compiler-box.onrender.com/run", payload);
       console.log(data);
       setJobId(data.jobId);
       let intervalId
       intervalId = setInterval(async () => {
         const { data: dataRes } = await axios.get(
-          "http://localhost:5000/status", { params: { id: data.jobId } });
+          "https://compiler-box.onrender.com/status", { params: { id: data.jobId } });
         const { success, job, error } = dataRes;
         console.log(dataRes);
         if (success) {
