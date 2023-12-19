@@ -28,8 +28,12 @@
   
 
 }
+@media (max-width: 600px) {
+  .code-bar{
+    width:90%;
 
-/* Style for the buttons and text inside the code bar */
+  }
+}/* Style for the buttons and text inside the code bar */
 .code-bar .file-name,
 .code-bar .language,
 .code-bar .date {
