@@ -21,7 +21,7 @@ function Compiler() {
   const [status, setStatus] = useState("");
   const [jobId, setJobId] = useState("");
   const [jobDetails, setJobDetails] = useState("null");
-  const {user} =useAuth0();
+  const {user,isAuthenticated} =useAuth0();
   const navigate = useNavigate();
   const [isRunning, setIsRunning] = useState(false);
 
@@ -31,6 +31,7 @@ function Compiler() {
   }, []);
   
   const saveCode = async () => {
+    if(isAuthenticated){
     const fileName = window.prompt('Enter the file name:')+"."+language;
     const userId = user.sub;
     // Replace with the actual user ID obtained from Auth0
@@ -42,6 +43,9 @@ function Compiler() {
     } catch (error) {
       console.error('Error saving code:', error);
 
+    }}
+    else{
+      window.alert('cannot save the code :Please login first')
     }
  
   };

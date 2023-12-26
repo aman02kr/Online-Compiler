@@ -11,8 +11,9 @@ function App(){
   return (
     
     <div className="App">
+      <div className="main">
       <ResponsiveAppBar/>
-      <div className="content">
+      
       <Routes>
         <Route path="/" element={<Compiler />} />
 

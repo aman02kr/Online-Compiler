@@ -1,3 +1,9 @@
-.body{
- width: 100%;
-}
+.App {
+    min-height: 100vh;
+  }
+  
+ 
+  .footer {
+    position: sticky;
+    top: 100%;            /* Footer height */
+  }
